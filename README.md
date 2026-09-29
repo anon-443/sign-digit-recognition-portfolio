@@ -58,7 +58,7 @@ Each output folder contains `model_bundle.pt`, `metrics.json`, `run_config.json`
 
 ## Inference and live demos
 
-**Temporary public demo:** [Sign Digit Vision](https://8502-iob7qxpw0ti3uvx48v4ep-a7a4073f.us4.manus.computer/). The URL is health-checked, but is Sandbox-hosted and not a permanent deployment.
+**Temporary demo status:** The task-session demo stopped when its Sandbox was reset, so there is no active public demo link at present. Run the app locally with the command below, or deploy it with a trained model bundle for a persistent link.
 
 Run the browser upload/camera-photo demo from the project root after training:
 
@@ -80,7 +80,7 @@ python -m pip install -e '.[webcam]'
 gesture-digits-live --model artifacts/digits/mobilenet/model_bundle.pt --camera 0 --threshold 0.45
 ```
 
-Press `q` to quit or `r` to clear the five-frame smoothing buffer. This webcam path has not been camera-tested in the cloud Sandbox; validate it on the target device. Images submitted to the public demo are transmitted to the temporary Sandbox-hosted app for inference; the app code does not persist them. Run the app locally for images you do not want sent to that service.
+Press `q` to quit or `r` to clear the five-frame smoothing buffer. This webcam path has not been camera-tested in the cloud Sandbox; validate it on the target device. When deployed, uploaded images are sent to that host for inference; this app code does not persist them. Run the app locally for images you do not want sent to a hosted service.
 
 ## Optional temporal landmark/GRU extension
 
