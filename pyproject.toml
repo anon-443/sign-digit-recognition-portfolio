@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "realtime-gesture-recognition"
+version = "0.1.0"
+description = "Transfer-learned sign-digit vision with a temporal MediaPipe landmark extension"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+  "torch>=2.2",
+  "torchvision>=0.17",
+  "numpy>=1.26",
+  "scikit-learn>=1.4",
+  "matplotlib>=3.8",
+  "Pillow>=10.0",
+  "streamlit>=1.35",
+]
+
+[project.optional-dependencies]
+webcam = ["mediapipe>=0.10.20", "opencv-python>=4.9"]
+dev = ["pytest>=8.0", "ruff>=0.5"]
+
+[project.scripts]
+gesture-collect = "gesturevision.collect:main"
+gesture-train = "gesturevision.train:main"
+gesture-live = "gesturevision.live:main"
+gesture-download-model = "gesturevision.download_model:main"
+gesture-digits-download = "gesturevision.digit_data:main"
+gesture-digits-train = "gesturevision.digit_train:main"
+gesture-digits-predict = "gesturevision.digit_inference:main"
+gesture-digits-live = "gesturevision.digit_live:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
